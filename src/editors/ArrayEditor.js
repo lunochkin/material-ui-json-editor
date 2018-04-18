@@ -2,7 +2,7 @@ import React from 'react'
 import {withStyles} from 'material-ui/styles'
 import IconButtonDefault from 'material-ui/IconButton'
 import AddIcon from '@material-ui/icons/Add'
-import ArrayItemEditor from 'components/JsonEditor/editors/ArrayItemEditor'
+import ArrayItemEditor from './ArrayItemEditor'
 
 const IconButton = withStyles({
   root: {

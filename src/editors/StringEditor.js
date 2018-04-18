@@ -1,6 +1,6 @@
 import React from 'react'
-import {TextField} from '@/components/basic'
-import {withStyles} from 'material-ui/styles'
+import TextField from 'material-ui/TextField'
+import withStyles from 'material-ui/styles/withStyles'
 
 const TextFieldStyled = withStyles({
   root: {
