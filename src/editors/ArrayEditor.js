@@ -103,7 +103,7 @@ class ArrayEditor extends React.Component {
   }
 
   render () {
-    const {schema, field, classes, onChange, ...rest} = this.props
+    const {schema, field, classes, onChange, root, ...rest} = this.props
     const value = this.getValue()
 
     return (

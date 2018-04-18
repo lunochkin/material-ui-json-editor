@@ -18,7 +18,7 @@ class JsonEditor extends React.Component {
     }
 
     return (
-      <GeneralEditor {...this.props} />
+      <GeneralEditor {...this.props} root />
     )
   }
 }

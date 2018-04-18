@@ -5,6 +5,7 @@ import Chooser from '../Chooser'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButtonDefault from 'material-ui/IconButton'
+import cx from 'classnames'
 
 const decorate = withStyles({
   root: {},
@@ -58,7 +59,7 @@ class ObjectEditor extends React.Component {
   }
 
   render () {
-    const {value, schema, classes, onChange, field, ...rest} = this.props
+    const {value, schema, classes, onChange, field, root, ...rest} = this.props
 
     const title = schema.title || schema.field
 
@@ -66,7 +67,7 @@ class ObjectEditor extends React.Component {
       <div className={classes.root}>
         {title ? <h4>{title}</h4> : null}
         {Object.keys(schema.properties).filter(this.isFieldToRender).map(key =>
-          <div key={key} className={classes.prop}>
+          <div key={key} className={cx(!root && classes.prop)}>
             <GeneralEditor
               field={key}
               schema={schema.properties[key]}
