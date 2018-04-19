@@ -1,5 +1,6 @@
 import React from 'react'
 import JsonEditor from '../../src/index'
+import CustomEditor from './CustomEditor'
 
 class App extends React.Component {
 
@@ -17,6 +18,10 @@ class App extends React.Component {
       },
       number: {
         type: 'number'
+      },
+      custom: {
+        type: 'custom',
+        'ui:widget': CustomEditor
       },
       checkbox: {type: 'boolean'},
       options: {

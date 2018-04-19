@@ -15,9 +15,14 @@ class GeneralEditor extends React.PureComponent {
       resultSchema = {...schema}
     }
 
-    const editorName = resultSchema.type.substr(0, 1).toUpperCase() + resultSchema.type.slice(1)
+    let Editor
 
-    const Editor = editors[`${editorName}Editor`]
+    if (schema.type === 'custom') {
+      Editor = schema['ui:widget']
+    } else {
+      const editorName = resultSchema.type.substr(0, 1).toUpperCase() + resultSchema.type.slice(1)
+      Editor = editors[`${editorName}Editor`]
+    }
 
     return (
       <Editor
