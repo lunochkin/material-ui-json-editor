@@ -27,13 +27,18 @@ class StringEditor extends React.Component {
     const resultValue = (value === undefined || value === null)
       ? (schema.defaultValue === undefined ? '' : schema.defaultValue) : value
 
+    const props = {...rest}
+    if (schema['ui:widget'] === 'textarea') {
+      props.multiline = true
+    }
+
     return (
       <TextFieldResult
         label={schema.title || field}
         style={schema.hidden ? style.hidden : null}
         value={resultValue}
         onChange={this.handleChange}
-        {...rest}
+        {...props}
       />
     )
   }

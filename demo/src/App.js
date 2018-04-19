@@ -11,6 +11,13 @@ class App extends React.Component {
     type: 'object',
     properties: {
       string: {type: 'string'},
+      text: {
+        type: 'string',
+        'ui:widget': 'textarea'
+      },
+      number: {
+        type: 'number'
+      },
       checkbox: {type: 'boolean'},
       options: {
         type: 'array',

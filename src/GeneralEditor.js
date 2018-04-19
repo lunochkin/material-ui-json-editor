@@ -7,8 +7,8 @@ class GeneralEditor extends React.PureComponent {
 
     let resultSchema
 
-    if (schema.type === 'number' || schema.type === 'integer' || schema.type === 'string') {
-      resultSchema = {...schema, type: 'string', format: 'number'}
+    if (schema.type === 'integer') {
+      resultSchema = {...schema, type: 'number'}
     } else if (schema.type === 'array' && schema.format !== 'complete' && schema.items.type === 'string') {
       resultSchema = {...schema, type: 'chips'}
     } else {

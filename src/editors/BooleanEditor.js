@@ -16,7 +16,7 @@ const FormControlLabelStyled = withStyles({
 })(FormControlLabel)
 
 const CheckboxStyled = withStyles({
-  default: {
+  root: {
     width: 16,
     height: 22,
     fontSize: '1.2em'
