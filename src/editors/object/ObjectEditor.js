@@ -1,11 +1,9 @@
 import React from 'react'
-import GeneralEditor from '../GeneralEditor'
 import {withStyles} from 'material-ui/styles'
-import Chooser from '../Chooser'
-import ExpandLessIcon from '@material-ui/icons/ExpandLess'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import IconButtonDefault from 'material-ui/IconButton'
+import Chooser from './Chooser'
+import Expander from './Expander'
 import cx from 'classnames'
+import ObjectItemEditor from './ObjectItemEditor'
 
 const decorate = withStyles({
   root: {},
@@ -63,70 +61,54 @@ class ObjectEditor extends React.Component {
 
     const title = schema.title || schema.field
 
+    const schemaProps = schema.properties || {}
+
+    const {flexible, notEmptyOnly} = schema
+
+    const propsToChoose = this.getPropsToChoose()
+
     return (
       <div className={classes.root}>
-        {title ? <h4>{title}</h4> : null}
-        {Object.keys(schema.properties).filter(this.isFieldToRender).map(key =>
-          <div key={key} className={cx(!root && classes.prop)}>
-            <GeneralEditor
-              field={key}
-              schema={schema.properties[key]}
-              value={value ? value[key] : null}
-              onChange={this.handleChange(key)}
-              {...rest}
-            />
-          </div>
+
+        {!!title &&
+          <h4>{title}</h4>
+        }
+
+        {Object.keys(schemaProps).filter(this.isFieldToRender).map(key =>
+          <ObjectItemEditor
+            field={key}
+            key={key}
+            className={cx(!root && classes.prop)}
+            schema={schemaProps[key]}
+            value={value ? value[key] : null}
+            onChange={this.handleChange(key)}
+            {...rest}
+          />
         )}
 
-        {this.renderExpander()}
-        {this.renderChooser()}
+        {notEmptyOnly &&
+          <Expander expanded={this.state.expanded} onClick={this.toggleExpandedMode} />
+        }
+        {flexible && propsToChoose.length > 0 &&
+          <Chooser
+            properties={properties}
+            onChoice={this.handleChoice}
+          />
+        }
       </div>
     )
   }
 
-  renderExpander () {
-    const {schema} = this.props
+  getPropsToChoose = () => {
+    const schemaProps = this.props.schema.properties || {}
 
-    if (!schema.notEmptyOnly) {
-      return null
-    }
+    const keys = Object.keys(schemaProps)
+    const keysMissed = keys.filter(field => !this.isFieldToRender(field))
 
-    return (
-      <IconButtonDefault onClick={this.toggleExpandedMode}>
-        {this.state.expanded
-          ? <ExpandLessIcon />
-          : <ExpandMoreIcon />
-        }
-      </IconButtonDefault>
-    )
-  }
-
-  renderChooser () {
-    const {schema} = this.props
-
-    if (!schema.flexible) {
-      return null
-    }
-
-    const keys = Object.keys(schema.properties)
-
-    const keysFiltered = keys.filter(this.isFieldToRender)
-
-    if (keysFiltered.length === keys.length) {
-      return null
-    }
-
-    const props = keys.filter(key => keysFiltered.indexOf(key) === -1).reduce((acc, key) => {
-      acc[key] = schema.properties[key]
-      return acc
-    }, {})
-
-    return (
-      <Chooser
-        properties={props}
-        onChoice={this.handleChoice}
-      />
-    )
+    return keysMissed.reduce((acc, key) => ({
+      ...acc,
+      key: schemaProps[key]
+    }), {})
   }
 
   isFieldToRender = field => {
@@ -146,7 +128,7 @@ class ObjectEditor extends React.Component {
     }
 
     if (schema.notEmptyOnly) {
-      if (schema.properties[field].required) {
+      if ((schema.properties || {})[field].required) {
         return true
       }
     }

@@ -41,6 +41,19 @@ class App extends React.Component {
           type: 'string',
         }
       },
+      // flexible: {
+      //   type: 'object',
+      //   title: 'flexible',
+      //   flexible: true,
+      //   notEmptyOnly: false,
+      //   items: {
+      //     type: 'string'
+      //   },
+      //   properties: {
+      //     one: {type: 'string', title: 'one', required: true},
+      //     two: {type: 'string'}
+      //   }
+      // }
     }
   }
 

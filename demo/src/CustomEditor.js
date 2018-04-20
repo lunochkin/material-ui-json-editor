@@ -8,10 +8,13 @@ class CustomEditor extends React.Component {
   }
 
   render() {
-    const {value} = this.props
+    const {value, field, schema} = this.props
 
     return (
-      <input type="text" value={value || ''} onChange={this.handleChange} />
+      <div>
+        <label>{schema.title || field}</label>
+        <input type="text" value={value || ''} onChange={this.handleChange} />
+      </div>
     )
   }
 }
