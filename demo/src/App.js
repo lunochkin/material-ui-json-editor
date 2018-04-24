@@ -41,6 +41,17 @@ class App extends React.Component {
           type: 'string',
         }
       },
+      type: {
+        type: 'string',
+        'ui:widget': 'dropdown',
+        'ui:widget:options': [{
+          label: 'Type 1',
+          value: 'type-1'
+        }, {
+          label: 'Type 2',
+          value: 'type-2'
+        }]
+      }
       // flexible: {
       //   type: 'object',
       //   title: 'flexible',

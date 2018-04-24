@@ -24,10 +24,34 @@ class StringEditor extends React.Component {
 
     const TextFieldResult = (components && components.TextField) || TextFieldStyled
 
-    const resultValue = (value === undefined || value === null)
-      ? (schema.defaultValue === undefined ? '' : schema.defaultValue) : value
-
     const props = {...rest}
+
+    if (schema['ui:widget'] === 'dropdown') {
+      const resultValue = value == undefined ? schema.defaultValue : value
+
+      return (
+        <TextFieldResult
+          label={schema.title || field}
+          select
+          SelectProps={{
+            native: true
+          }}
+          style={schema.hidden ? style.hidden : null}
+          value={resultValue}
+          onChange={this.handleChange}
+          {...props}
+        >{schema['ui:widget:options'].map(option =>
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        )}</TextFieldResult>
+      )
+    }
+
+    const resultValue = value == undefined
+      ? (schema.defaultValue == undefined ? '' : schema.defaultValue) : value
+
+
     if (schema['ui:widget'] === 'textarea') {
       props.multiline = true
     }
