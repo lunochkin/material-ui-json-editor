@@ -3,7 +3,6 @@ import JsonEditor from '../../src/index'
 import CustomEditor from './CustomEditor'
 
 class App extends React.Component {
-
   state = {
     value: {}
   }
@@ -38,7 +37,7 @@ class App extends React.Component {
       tags: {
         type: 'array',
         items: {
-          type: 'string',
+          type: 'string'
         }
       },
       type: {
@@ -51,6 +50,16 @@ class App extends React.Component {
           label: 'Type 2',
           value: 'type-2'
         }]
+      },
+      object: {
+        type: 'object',
+        title: 'Object',
+        'ui:collapsed': true,
+        properties: {
+          field1: {type: 'string'},
+          field2: {type: 'string'},
+          field3: {type: 'string'}
+        }
       }
       // flexible: {
       //   type: 'object',
@@ -74,7 +83,7 @@ class App extends React.Component {
     })
   }
 
-  render() {
+  render () {
     return (
       <div>
         <JsonEditor

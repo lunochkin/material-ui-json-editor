@@ -36,6 +36,7 @@ class BooleanEditor extends React.Component {
     return (
       <FormControlLabelStyled
         label={schema.title || field}
+        className='MUJE-Boolean-FormControlLabel'
         control={
           <CheckboxStyled
             checked={resultValue}
