@@ -91,7 +91,7 @@ class ObjectEditor extends React.Component {
         }
         {flexible && propsToChoose.length > 0 &&
           <Chooser
-            properties={properties}
+            properties={propsToChoose}
             onChoice={this.handleChoice}
           />
         }

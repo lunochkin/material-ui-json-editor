@@ -5,7 +5,6 @@ import RemoveIcon from '@material-ui/icons/Remove'
 import IconButtonDefault from 'material-ui/IconButton'
 import IconArrowUpward from '@material-ui/icons/ArrowUpward'
 import IconArrowDownward from '@material-ui/icons/ArrowDownward'
-import red from 'material-ui/colors/red'
 import cx from 'classnames'
 
 const IconButton = withStyles({
@@ -26,8 +25,7 @@ const decorate = withStyles({
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 7,
-    paddingRight: 5,
-    border: `1px solid ${red[500]}`
+    paddingRight: 5
   },
   editor: {
     flex: 1
@@ -46,7 +44,7 @@ class ArrayItemEditor extends React.Component {
     const {classes, onRemove, onUp, onDown, ...rest} = this.props
 
     return (
-      <div className={classes.root}>
+      <div className={cx('MUJE-ArrayItem', classes.root)}>
         <IconButton onClick={onRemove} color='primary'>
           <RemoveIcon />
         </IconButton>

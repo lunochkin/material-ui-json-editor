@@ -5,10 +5,9 @@ import IconButtonDefault from 'material-ui/IconButton'
 
 const Expander = ({expanded, onClick}) =>
   <IconButtonDefault onClick={onClick}>
-    {expanded ?
-      <ExpandLessIcon />
-      :
-      <ExpandMoreIcon />
+    {expanded
+      ? <ExpandLessIcon />
+      : <ExpandMoreIcon />
     }
   </IconButtonDefault>
 
