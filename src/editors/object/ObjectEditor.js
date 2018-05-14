@@ -57,7 +57,7 @@ class ObjectEditor extends React.Component {
   }
 
   render () {
-    const {value, schema, classes, onChange, field, root, ...rest} = this.props
+    const {value, schema, classes, onChange, field, root, className, ...rest} = this.props
 
     const title = schema.title || schema.field
 
@@ -68,7 +68,7 @@ class ObjectEditor extends React.Component {
     const propsToChoose = this.getPropsToChoose()
 
     return (
-      <div className={classes.root}>
+      <div className={cx(className, classes.root)}>
 
         {!!title &&
           <h4>{title}</h4>
