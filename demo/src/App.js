@@ -12,6 +12,7 @@ class App extends React.Component {
     properties: {
       string: {type: 'string'},
       stringDisabled: {type: 'string', title: 'Disabled', disabled: true},
+      stringRequired: {type: 'string', title: 'Required', required: true},
       text: {
         type: 'string',
         'ui:widget': 'textarea'

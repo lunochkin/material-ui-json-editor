@@ -61,6 +61,9 @@ class StringEditor extends React.Component {
     if (schema.disabled) {
       props.disabled = schema.disabled
     }
+    if (schema.required) {
+      props.required = schema.required
+    }
 
     return (
       <TextFieldResult
