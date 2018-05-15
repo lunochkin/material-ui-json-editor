@@ -11,6 +11,7 @@ class App extends React.Component {
     type: 'object',
     properties: {
       string: {type: 'string'},
+      stringDisabled: {type: 'string', title: 'Disabled', disabled: true},
       text: {
         type: 'string',
         'ui:widget': 'textarea'
@@ -90,6 +91,7 @@ class App extends React.Component {
           schema={this.schema}
           value={this.state.value}
           onChange={this.handleChange}
+          className='JsonEditor'
           // onFocus={this.handleFocus}
           // onKeyUp={this.handleKeyUp}
           // onKeyDown={this.handleKeyDown}

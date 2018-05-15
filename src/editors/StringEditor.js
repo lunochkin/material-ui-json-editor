@@ -58,6 +58,10 @@ class StringEditor extends React.Component {
       props.multiline = true
     }
 
+    if (schema.disabled) {
+      props.disabled = schema.disabled
+    }
+
     return (
       <TextFieldResult
         label={schema.title || field}
