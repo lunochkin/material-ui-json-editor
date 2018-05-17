@@ -1,7 +1,7 @@
 import React from 'react'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import IconButtonDefault from 'material-ui/IconButton'
+import IconButtonDefault from '@material-ui/core/IconButton'
 
 const Expander = ({expanded, onClick}) =>
   <IconButtonDefault onClick={onClick}>

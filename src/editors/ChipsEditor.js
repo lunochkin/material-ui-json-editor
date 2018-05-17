@@ -1,6 +1,6 @@
 import React from 'react'
 import ChipInput from 'material-ui-chip-input'
-import {withStyles} from 'material-ui/styles'
+import {withStyles} from '@material-ui/core/styles'
 
 const decorate = withStyles({
   root: {

@@ -1,7 +1,7 @@
 import React from 'react'
-import Menu, {MenuItem} from 'material-ui/Menu'
+import Menu, {MenuItem} from '@material-ui/core/Menu'
 import AddIcon from '@material-ui/icons/Add'
-import IconButton from 'material-ui/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 
 class Chooser extends React.Component {
   state = {

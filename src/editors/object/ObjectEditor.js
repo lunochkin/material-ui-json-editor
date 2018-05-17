@@ -1,5 +1,5 @@
 import React from 'react'
-import {withStyles} from 'material-ui/styles'
+import {withStyles} from '@material-ui/core/styles'
 import Chooser from './Chooser'
 import Expander from './Expander'
 import cx from 'classnames'
