@@ -20,7 +20,7 @@ class StringEditor extends React.Component {
   }
 
   render () {
-    const {schema, value, components, onChange, field, ...rest} = this.props
+    const {schema, value, parentValue, components, onChange, field, ...rest} = this.props
 
     const TextFieldResult = (components && components.TextField) || TextFieldStyled
 

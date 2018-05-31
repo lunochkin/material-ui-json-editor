@@ -82,6 +82,7 @@ class ObjectEditor extends React.Component {
             schema={schemaProps[key]}
             value={value ? value[key] : null}
             onChange={this.handleChange(key)}
+            parentValue={value}
             {...rest}
           />
         )}

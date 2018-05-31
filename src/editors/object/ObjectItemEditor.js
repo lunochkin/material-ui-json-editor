@@ -3,7 +3,7 @@ import GeneralEditor from '../../GeneralEditor'
 
 class ObjectItemEditor extends React.Component {
   render () {
-    const {className, field, schema, value, onChange, ...rest} = this.props
+    const {className, field, schema, value, parentValue, onChange, ...rest} = this.props
 
     return (
       <div className={className}>
@@ -11,6 +11,7 @@ class ObjectItemEditor extends React.Component {
           field={field}
           schema={schema}
           value={value}
+          parentValue={parentValue}
           onChange={onChange}
           {...rest}
         />

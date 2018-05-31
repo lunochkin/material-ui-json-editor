@@ -29,7 +29,7 @@ class BooleanEditor extends React.Component {
   }
 
   render () {
-    const {schema, value, components, onChange, field, ...rest} = this.props
+    const {schema, value, parentValue, components, onChange, field, ...rest} = this.props
 
     const resultValue = !!(value === undefined ? schema.defaultValue : value)
 
