@@ -1,6 +1,6 @@
 {
   "name": "material-ui-json-editor",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "A json editor based on json schema for material-ui@next",
   "main": "lib/index.js",
   "author": "@lunochkin",
