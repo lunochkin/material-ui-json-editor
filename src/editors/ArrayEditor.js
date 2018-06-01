@@ -16,7 +16,7 @@ const IconButton = withStyles({
 })(IconButtonDefault)
 
 const generateValue = itemSchema => {
-  if (itemSchema.type === 'string' || itemSchema.type === 'number' || itemSchema.type === 'integer') {
+  if (itemSchema.type === 'string' || itemSchema.type === 'number' || itemSchema.type === 'integer' || itemSchema.type === 'custom') {
     return itemSchema.defaultValue !== undefined ? itemSchema.defaultValue : ''
   }
   if (itemSchema.type === 'boolean') {

@@ -32,7 +32,11 @@ class App extends React.Component {
           type: 'object',
           properties: {
             disabled: {type: 'boolean'},
-            text: {type: 'string'}
+            text: {type: 'string'},
+            custom: {
+              type: 'custom',
+              'ui:widget': CustomEditor
+            }
           }
         }
       },
