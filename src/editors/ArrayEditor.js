@@ -110,9 +110,6 @@ class ArrayEditor extends React.Component {
       <div>
         <h4 className={classes.title}>
           <span>{schema.title || field}</span>
-          <IconButton onClick={this.handleAdd} color='primary'>
-            <AddIcon />
-          </IconButton>
         </h4>
         {value.map((one, index) =>
           <ArrayItemEditor
@@ -127,7 +124,9 @@ class ArrayEditor extends React.Component {
             field={field}
           />
         )}
-
+        <IconButton onClick={this.handleAdd} color='primary'>
+          <AddIcon />
+        </IconButton>
       </div>
     )
   }
