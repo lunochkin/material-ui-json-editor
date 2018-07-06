@@ -82,6 +82,16 @@ class ArrayEditor extends React.Component {
     )
   }
 
+  handleKeyUp = e => {
+    e.preventDefault()
+    const {keyCode, ctrlKey} = e.nativeEvent
+    if (keyCode === 13) {
+      if (ctrlKey) {
+        this.handleAdd()
+      }
+    }
+  }
+
   moveItem = (index, newIndex) => {
     const value = this.getValue()
 
@@ -119,6 +129,7 @@ class ArrayEditor extends React.Component {
             schema={schema.items}
             onChange={this.handleChange(index)}
             onRemove={this.handleRemove(index)}
+            onKeyUp={this.handleKeyUp}
             onUp={index > 0 ? this.handleUp(index) : null}
             onDown={index < value.length - 1 ? this.handleDown(index) : null}
             field={field}
