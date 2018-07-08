@@ -66,7 +66,6 @@ class ObjectEditor extends React.Component {
     const {flexible, notEmptyOnly} = schema
 
     const propsToChoose = this.getPropsToChoose()
-
     return (
       <div className={cx(className, classes.root)}>
 
@@ -88,7 +87,7 @@ class ObjectEditor extends React.Component {
         )}
 
         {notEmptyOnly &&
-          <Expander expanded={this.state.expanded} onClick={this.toggleExpandedMode} />
+          <Expander expanderClassName={this.props.expanderClassName} expanded={this.state.expanded} onClick={this.toggleExpandedMode} />
         }
         {flexible && propsToChoose.length > 0 &&
           <Chooser
