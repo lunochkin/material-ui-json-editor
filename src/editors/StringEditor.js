@@ -20,7 +20,7 @@ class StringEditor extends React.Component {
   }
 
   render () {
-    const {schema, value, parentValue, components, onChange, field, ...rest} = this.props
+    const {schema, value, parentValue, components, onChange, field, expanderClassName, ...rest} = this.props
 
     const TextFieldResult = (components && components.TextField) || TextFieldStyled
 
@@ -39,6 +39,7 @@ class StringEditor extends React.Component {
           style={schema.hidden ? style.hidden : null}
           value={resultValue}
           onChange={this.handleChange}
+          expanderClassName={expanderClassName}
           {...props}
         >
           {schema['ui:widget:options'].map(option =>
