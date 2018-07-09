@@ -29,7 +29,7 @@ class BooleanEditor extends React.Component {
   }
 
   render () {
-    const {schema, value, parentValue, components, onChange, field, ...rest} = this.props
+    const {schema, value, parentValue, components, onChange, field, expanderClassName, ...rest} = this.props
 
     const resultValue = !!(value === undefined ? schema.defaultValue : value)
 
@@ -41,6 +41,7 @@ class BooleanEditor extends React.Component {
           <CheckboxStyled
             checked={resultValue}
             onChange={this.handleChange}
+            expanderClassName={expanderClassName}
             {...rest}
           />
         }
