@@ -41,7 +41,6 @@ class BooleanEditor extends React.Component {
           <CheckboxStyled
             checked={resultValue}
             onChange={this.handleChange}
-            expanderClassName={expanderClassName}
             {...rest}
           />
         }
