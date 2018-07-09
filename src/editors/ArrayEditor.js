@@ -83,7 +83,6 @@ class ArrayEditor extends React.Component {
   }
 
   handleKeyUp = e => {
-    e.preventDefault()
     const {keyCode, ctrlKey} = e.nativeEvent
     if (keyCode === 13) {
       if (ctrlKey) {
