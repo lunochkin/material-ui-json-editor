@@ -39,7 +39,6 @@ class StringEditor extends React.Component {
           style={schema.hidden ? style.hidden : null}
           value={resultValue}
           onChange={this.handleChange}
-          expanderClassName={expanderClassName}
           {...props}
         >
           {schema['ui:widget:options'].map(option =>
