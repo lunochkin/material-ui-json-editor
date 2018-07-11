@@ -89,6 +89,10 @@ class App extends React.Component {
     })
   }
 
+  handleKeyUp = value => {
+    console.log(1)
+  }
+
   render () {
     return (
       <div>
@@ -98,7 +102,7 @@ class App extends React.Component {
           onChange={this.handleChange}
           className='JsonEditor'
           // onFocus={this.handleFocus}
-          // onKeyUp={this.handleKeyUp}
+          onKeyUp={this.handleKeyUp}
           // onKeyDown={this.handleKeyDown}
           // components={{TextField: TextFieldCustom}}
         />
