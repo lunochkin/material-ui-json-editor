@@ -89,6 +89,9 @@ class ArrayEditor extends React.Component {
         this.handleAdd()
       }
     }
+    if (this.props.onKeyUp) {
+      this.props.onKeyUp(e)
+    }
   }
 
   moveItem = (index, newIndex) => {
